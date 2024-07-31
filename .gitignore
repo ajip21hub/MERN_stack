@@ -13,3 +13,4 @@ frontend/build
 *.log
 *.lock
 .vercel
+node_modules
