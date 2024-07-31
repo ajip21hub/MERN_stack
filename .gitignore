@@ -12,3 +12,4 @@ frontend/build
 .env
 *.log
 *.lock
+.vercel
