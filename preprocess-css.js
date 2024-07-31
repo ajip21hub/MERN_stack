@@ -10,6 +10,10 @@ postcss([calc()])
   .process(css, { from: undefined })
   .then(result => {
     // Write the processed CSS to a new file
+    const outputDir = 'frontend/src';
+    if (!fs.existsSync(outputDir)){
+      fs.mkdirSync(outputDir, { recursive: true });
+    }
     fs.writeFileSync('frontend/node_modules/@radix-ui/themes/styles.processed.css', result.css);
   })
   .catch(error => {
