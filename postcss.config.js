@@ -1,6 +1,6 @@
 module.exports = {
   plugins: [
-    require('./simplify-calc'),
+    // require('./simplify-calc'),
     require('postcss-preset-env')({
       stage: 1,
       features: {
