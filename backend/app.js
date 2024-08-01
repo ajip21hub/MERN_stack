@@ -31,8 +31,7 @@ app.listen(PORT, ()=>{
     console.log(`Server running on port ${PORT}`);
 });
 
-app.use('/.netlify/functions/auth', authRoute);
-app.use('/.netlify/functions', emailRoute);
+
 
 
 module.exports.handler = serverless(app);
