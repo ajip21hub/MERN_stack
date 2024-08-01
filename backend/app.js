@@ -27,12 +27,11 @@ app.use(bodyParser.json());
 app.use('/api/auth', authRoute);
 app.use('/api/', emailRoute);
 
-// if (process.env.NODE_ENV !== 'production') {
-//     app.listen(PORT, () => {
-//         console.log(`Server running on port ${PORT}`);
-//     });
-// } else {
-//     module.exports.handler = serverless(app);
-// }
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(PORT, () => {
+        console.log(`Server running on port ${PORT}`);
+    });
+} else {
+    module.exports.handler = serverless(app);
+}
 
-module.exports.handler = serverless(app);
