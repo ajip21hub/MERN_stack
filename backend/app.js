@@ -1,9 +1,9 @@
+require('dotenv').config(); 
 const express = require('express');
 const bodyParser = require('body-parser');
 const connectDB = require('./config/db');
 const authRoute = require('./routes/authRoutes');
 const cors = require('cors');
-require('dotenv').config(); 
 const emailRoute = require('./routes/emailRoutes')
 const serverless = require('serverless-http');
 
@@ -16,7 +16,7 @@ connectDB();
 
 // middleware
 const corsOptions = {
-    origin:  process.env.ALLOWED_ORIGIN ||  'http://localhost:3000',
+    origin:  process.env.ALLOWED_ORIGIN ||  'http://localhost:8888',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     creadentials: true
 }
@@ -27,10 +27,12 @@ app.use(bodyParser.json());
 app.use('/api/auth', authRoute);
 app.use('/api/', emailRoute);
 
-if (process.env.NODE_ENV !== 'production') {
-    app.listen(PORT, () => {
-        console.log(`Server running on port ${PORT}`);
-    });
-} else {
-    module.exports.handler = serverless(app);
-}
+// if (process.env.NODE_ENV !== 'production') {
+//     app.listen(PORT, () => {
+//         console.log(`Server running on port ${PORT}`);
+//     });
+// } else {
+//     module.exports.handler = serverless(app);
+// }
+
+module.exports.handler = serverless(app);

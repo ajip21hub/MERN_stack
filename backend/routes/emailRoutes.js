@@ -50,6 +50,7 @@ const transporter = nodemailer.createTransport({
 
   // Routes Mail CRUD
   router.get('/mails', async (req, res) => {
+    console.log('Received a request to /mails');  
     try {
       const mails = await Mail.find();
       res.json(mails);
