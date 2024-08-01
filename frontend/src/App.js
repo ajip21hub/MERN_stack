@@ -7,6 +7,7 @@ import Navbar from './components/Navbar';
 import Dashboard from './components/Dashboard';
 import ProtectedRoute from './components/ProtectedRoute';
 import Registration from './components/Registration';
+import MailCRUDPage from './components/MailCRUDPage';
 
 function App() {
   return (
@@ -18,6 +19,12 @@ function App() {
           <Route path="/dashboard" element={
             <ProtectedRoute>
             <Dashboard/>
+          </ProtectedRoute>
+        } />
+
+         <Route path="/crud" element={
+            <ProtectedRoute>
+            <MailCRUDPage/>
           </ProtectedRoute>
         } />
           <Route path="/" element={<Home/>} />

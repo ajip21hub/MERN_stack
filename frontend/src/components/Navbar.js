@@ -29,7 +29,15 @@ const Navbar = () => {
                 <Link onClick={logout} className="NavigationLink">Logout</Link>
               </NavigationMenu.Link>
             </NavigationMenu.Item>
+
+            <NavigationMenu.Item>
+              <NavigationMenu.Link asChild>
+                <Link to='/crud' className="NavigationLink">CRUD</Link>
+              </NavigationMenu.Link>
+            </NavigationMenu.Item>
           </>
+
+          
         ) : (
           <NavigationMenu.Item>
             <NavigationMenu.Link asChild>

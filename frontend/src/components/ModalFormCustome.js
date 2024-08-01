@@ -4,8 +4,10 @@ import '../styles/ModalCustome.css'; // Import your CSS file for styling
 import { Flex, Button,TextField,TextArea } from '@radix-ui/themes';
 
 
-const ModalFormCustome = ({modalTitle, setMessage}) => {
+const ModalFormCustome = ({modalTitle, setMessage, setRefreshCalendar}) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+ 
+
   const [formData, setFormData] = useState({
     email:'',
     date:'',
@@ -29,7 +31,8 @@ const ModalFormCustome = ({modalTitle, setMessage}) => {
     e.preventDefault();
     setIsLoading(true);
     try {
-        const response = await fetch(`${process.env.REACT_APP_API_URL}/send-email`, {
+      const api_url = `${process.env.REACT_APP_API_URL}/send-email`;
+        const response = await fetch(api_url, {
             method: 'POST',
             headers: {
                 'Content-Type':'application/json'
@@ -42,6 +45,8 @@ const ModalFormCustome = ({modalTitle, setMessage}) => {
             setMessage({ type: 'success', text: data.message });
             alert(data.message);
             closeModal();
+            // setRefreshCalendar(!refreshCalendar);
+            setRefreshCalendar(true);
         }else {
             alert(data.message);
         }
@@ -60,7 +65,7 @@ const ModalFormCustome = ({modalTitle, setMessage}) => {
         {modalTitle}
       </Button>
       <Modal isOpen={isModalOpen} onClose={closeModal} title={modalTitle}>
-        <h3>createRoot</h3>
+        <h3>Create </h3>
         <form onSubmit={handleSubmit}>
     
           <div className="form-group">

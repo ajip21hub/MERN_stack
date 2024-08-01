@@ -7,14 +7,14 @@ require('dotenv').config();
 const emailRoute = require('./routes/emailRoutes')
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5100;
 
 // connectDB
 connectDB();
 
 // middleware
 const corsOptions = {
-    origin:  process.env.ALLOWED_ORIGIN ||  'http://localhost:3001',
+    origin:  process.env.ALLOWED_ORIGIN ||  'http://localhost:3000',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     creadentials: true
 }
@@ -26,5 +26,5 @@ app.use('/api/auth', authRoute);
 app.use('/api/', emailRoute);
 
 app.listen(PORT, ()=>{
-    console.log('Server running on port ${PORT}');
+    console.log(`Server running on port ${PORT}`);
 });
