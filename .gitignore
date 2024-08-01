@@ -1,12 +1,12 @@
 # Ignore node_modules directory in backend
 backend/node_modules
 backend/.env
-backend/build
+# backend/build
 
 # Ignore node_modules directory in frontend
 frontend/node_modules
 frontend/.env
-frontend/build
+# frontend/build
 
 # Ignore other common files and directories
 .env
