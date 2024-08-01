@@ -5,9 +5,11 @@ const authRoute = require('./routes/authRoutes');
 const cors = require('cors');
 require('dotenv').config(); 
 const emailRoute = require('./routes/emailRoutes')
+const serverless = require('serverless-http');
 
 const app = express();
 const PORT = process.env.PORT || 5100;
+const router = express.Router();
 
 // connectDB
 connectDB();
@@ -28,3 +30,7 @@ app.use('/api/', emailRoute);
 app.listen(PORT, ()=>{
     console.log(`Server running on port ${PORT}`);
 });
+
+app.use('/.netlify/functions', router);
+
+module.exports.handler = serverless(app);
