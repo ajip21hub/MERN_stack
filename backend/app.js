@@ -31,7 +31,7 @@ app.listen(PORT, ()=>{
     console.log(`Server running on port ${PORT}`);
 });
 
-app.use('/.netlify/functions', authRoute);
+app.use('/.netlify/functions/auth', authRoute);
 app.use('/.netlify/functions', emailRoute);
 
 
