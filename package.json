@@ -2,9 +2,9 @@
     "name": "mern-stack",
     "version": "1.0.0",
     "scripts": {
-        "start": "node backend/app.js",
-        "prebuild": "node preprocess-css.js",
-        "build": "cd frontend && npm install && npm run build"
+        "prebuild": "cd frontend && npm install && cd .. && node preprocess-css.js",
+        "build": "cd frontend && npm run build",
+        "start": "node backend/app.js"
     },
     "dependencies": {
         "express": "^4.17.1"
