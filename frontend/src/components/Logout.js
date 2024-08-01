@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
+import { Link } from 'react-router-dom';
 
 const Logout = () => {
   const navigate = useNavigate();
@@ -30,7 +31,7 @@ const Logout = () => {
   };
 
   return (
-    <button onClick={handleLogout}>Logout</button>
+    <Link onClick={handleLogout} className="NavigationLink">Logout</Link>
   );
 };
 

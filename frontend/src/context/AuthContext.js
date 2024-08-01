@@ -28,9 +28,29 @@ export const AuthProvider = ({children}) => {
         setEmail(newEmail);
     }
 
-    const logout = () => {
-        setToken(null);
-        setEmail(null);
+    const logout = async() => {
+        try {
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/auth/logout`, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`,
+              },
+              body: JSON.stringify({ email: email }), // Replace with actual email
+            });
+      
+            const data = await response.json();
+            if (response.status === 200) {
+            setToken(null);
+            setEmail(null);
+              logout();
+            } else {
+              alert(data.message);
+            }
+          } catch (err) {
+            console.error(err);
+          }
+     
         
     }
 
