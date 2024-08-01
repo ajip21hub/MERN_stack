@@ -4,9 +4,9 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Theme } from '@radix-ui/themes';
-// import '@radix-ui/themes/styles.css';
+import '@radix-ui/themes/styles.css';
 // import '@radix-ui/themes/styles.processed.css';
-import './styles.processed.css';
+// import './styles.processed.css';
 import { AuthProvider } from './context/AuthContext';
 
 

@@ -43,6 +43,18 @@
   },
   "devDependencies": {
     "@babel/plugin-transform-private-property-in-object": "^7.24.7",
-    "postcss-preset-env": "^9.6.0"
+    "postcss-preset-env": "^9.6.0",
+    "postcss": "^8.4.6",
+    "postcss-cli": "^9.0.1",
+    "postcss-calc": "^8.0.0",
+    "cssnano": "^5.0.0"
+  },
+  "cssnano": {
+    "preset": [
+      "default",
+      {
+        "calc": false
+      }
+    ]
   }
 }
